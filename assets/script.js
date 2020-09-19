@@ -4,16 +4,19 @@ var promptChar;
 var promptLength;
 var passChar;
 var passLength;
+var count = 0;
+var ranNum;
+var passwordArr = [];
 //string of characters and a counter for how many times used
 var lowercaseletters = ["abcdefghijklmnopqrstuvwxyz",0]
 var uppercaseletters = ["ABCDEFGHIJKLMNOPQRSTUVWXTZ",0]
-var specialcharacters = [" !$%()*+,-./:;<=>?@[]^-`{|}~\'\"\&\\\#",0]
+var specialcharacters = [" !$%()*+,-./:;<=>?@[]^-`{|}~\'\"\&\\\#",0];
+var numbercharacters = ["0123456789",0]
+var allChar = []
 // Write password to the #password input
 function writePassword() {
   console.log("In the writePassword Function");
   var password = generatePassword();
-  //use passLength and passChar to create password
-
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
@@ -40,6 +43,34 @@ function generatePassword(){
       passChar =  prompt("Lowercase (L), Uppercase (U), Numbers (N), Special Characters (S)");
       console.log("User Input for length confirm: " + passChar);
       passChar = passChar.toLowerCase();
+      passChar.addChar();
+    }
+//use passLength and passChar to create password
+    if (promptLength){
+      for (count = 0; count < passLength; count++){
+        // generates a random number 0-2 to choose between 
+        ranNum = Math.floor((Math.random() * allChar.length));
+
+        passwordArr.push();
+      }
+    }
+    else {
+  
     }
 }
 
+// this function adds all neccessary characters
+function addChar(){
+  if (promptChar.indexOf('l')){
+    allChar.push(lowercaseletters);
+  }
+  if (promptChar.indexOf('u')){
+    allChar.push(uppercaseletters);
+  }
+  if (promptChar.indexOf('n')){
+    allChar.push(numbercharacters);
+  }
+  if (promptChar.indexOf('s')){
+    allChar.push(specialcharacters);
+  }
+}
