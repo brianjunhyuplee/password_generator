@@ -71,11 +71,21 @@ function generatePassword(){
       passwordArr.checkChar();
     }
     else {
-      for (count = 0; count < Math.floor(Math.random*120)+8; count++){
-        ranNum = Math.floor((Math.random() * 3));
-        ranCharIndex = Math.floor((Math.random() * allChar[ranNum[0]].length));
-        passwordArr.push(allChar[ranNum[0]].charAt(ranCharIndex));
+      if (!promptChar){
+        for (count = 0; count < Math.floor(Math.random*120)+8; count++){
+          ranNum = Math.floor((Math.random() * 3));
+          ranCharIndex = Math.floor((Math.random() * allChar[ranNum[0]].length));
+          passwordArr.push(allChar[ranNum[0]].charAt(ranCharIndex));
+        }
       }
+      else {
+        for (count = 0; count < Math.floor(Math.random*120)+8; count++){
+          ranNum = Math.floor((Math.random() * allChar.lenth));
+          ranCharIndex = Math.floor((Math.random() * allChar[ranNum[0]].length));
+          passwordArr.push(allChar[ranNum[0]].charAt(ranCharIndex));
+        }
+      }
+
     }
 }
 
