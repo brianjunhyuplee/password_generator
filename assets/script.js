@@ -41,6 +41,10 @@ function generatePassword(){
   console.log("User Input for length confirm: " + promptLength);
     if(promptLength){
       passLength = prompt("Enter a number (8 - 128) for character count");
+      while(!(passLength > 8) || !(passLength < 128))
+      {
+        passLength = prompt("Error: ENTER NUMBER 8-128");
+      }
       console.log("User Input for length confirm: " + passLength);
     }
     else{
