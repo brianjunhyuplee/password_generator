@@ -65,13 +65,17 @@ function generatePassword(){
         console.log("character type has been used this many times: " + allChar[ranNum[1]]);
         // adds that character to your password
         // passwordArr.push(allChar[ranNum[0[ranCharIndex]]]);
-        passwordArr.push(allCha[ranNum[0]].charAt(ranCharIndex));
+        passwordArr.push(allChar[ranNum[0]].charAt(ranCharIndex));
       }
       // check to see if all char types had been used at least once
       passwordArr.checkChar();
     }
     else {
-  
+      for (count = 0; count < Math.floor(Math.random*120)+8; count++){
+        ranNum = Math.floor((Math.random() * 3));
+        ranCharIndex = Math.floor((Math.random() * allChar[ranNum[0]].length));
+        passwordArr.push(allChar[ranNum[0]].charAt(ranCharIndex));
+      }
     }
 }
 
