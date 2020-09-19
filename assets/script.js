@@ -21,6 +21,7 @@ var allChar = []
 function writePassword() {
   console.log("In the writePassword Function");
   var password = generatePassword();
+  password.toString();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
@@ -63,7 +64,8 @@ function generatePassword(){
         //pushes character to passwordArr
         console.log("character type has been used this many times: " + allChar[ranNum[1]]);
         // adds that character to your password
-        passwordArr.push(allChar[ranNum[0[ranCharIndex]]]);
+        // passwordArr.push(allChar[ranNum[0[ranCharIndex]]]);
+        passwordArr.push(allCha[ranNum[0]].charAt(ranCharIndex));
       }
       // check to see if all char types had been used at least once
       passwordArr.checkChar();
@@ -98,7 +100,8 @@ function checkChar(){
             ranNum = Math.floor((Math.random() * allChar[count2[2]].length));
             ranCharIndex = Math.floor((Math.random() * allChar[count[0]].length));
             //changes the character at a random index with a repeated character type
-            passwordArr[allChar[count2[2[ranNum]]]] = allChar[count[0[ranCharIndex]]];
+            //passwordArr[allChar[count2[2[ranNum]]]] = allChar[count[0[ranCharIndex]]];
+            passwordArr[allChar[count2[2[ranNum]]]] = allChar[count[0]].charAt([ranCharIndex]);
             //updates the counters
             allChar[count[1]] == allChar[count[1]]+1;
             allChar[count2[1]] == allChar[count2[1]]-1;
