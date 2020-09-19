@@ -18,7 +18,7 @@ Create a website that generates a random password with the given user criterias.
 ![Image of Password Generator Webstite](assets/images/web.png)
 ## Operation:
 
-**To access the website, simply click on this [deploymentlink](https://brianjunhyuplee.github.io/portfolio/).**
+**To access the website, simply click on this [deploymentlink](https://brianjunhyuplee.github.io/password_generator/).**
 
 1. Start by clicking on the "Generate Password" Button.
 2. The interface will prompt the user if a specified length is required.
@@ -129,7 +129,7 @@ Math.(floor(Math.random()*e)+s);
 * [JS]([https://developer.mozilla.org/en-US/docs/Web/JavaScript])
 
 ## Deployed Link:
-* [Brian's_Portfolio_Webpage](https://brianjunhyuplee.github.io/password_generator/)
+* [Password-Generatpr](https://brianjunhyuplee.github.io/password_generator/)
 
 ## Author(s):
 **Brian Lee**
