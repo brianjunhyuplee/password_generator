@@ -5,7 +5,9 @@ var promptLength;
 var passChar;
 var passLength;
 var count = 0;
+var ranChar;
 var ranNum;
+var ranCharIndex;
 var passwordArr = [];
 //string of characters and a counter for how many times used
 var lowercaseletters = ["abcdefghijklmnopqrstuvwxyz",0]
@@ -50,7 +52,8 @@ function generatePassword(){
       for (count = 0; count < passLength; count++){
         // generates a random number 0-2 to choose between 
         ranNum = Math.floor((Math.random() * allChar.length));
-
+        ranCharIndex = Math.floor((Math.random() * allChar[ranNum[0]].length));
+        ranChar = promptChar[ranNum[[0][ranCharIndex]]];
         passwordArr.push();
       }
     }
