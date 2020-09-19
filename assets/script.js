@@ -44,11 +44,12 @@ function generatePassword(){
       console.log("User Input for length confirm: " + passLength);
     }
     else{
-      passLength = Math.floor(Math.random*120)+8;
+      passLength = (Math.floor(Math.random()*120)+8);
+      console.log("promptLength: " + passLength);
     }
   //getting characters needed
   var promptChar = confirm("There should be certain characters included for my password");
-  console.log("User Input for char confirm: " + promptChar);
+  console.log("User Input for char confirm: " + passChar);
     if(promptChar){
       alert("Enter all letters that apply");
       passChar =  prompt("Lowercase (L), Uppercase (U), Numbers (N), Special Characters (S)");
@@ -57,7 +58,29 @@ function generatePassword(){
       addChar();
     }
     else{
-      passChar = Math.floor((Math.random() * 3);
+      //randomly adds character types
+      passChar = [];
+      // loops until at least one character type is selected
+      while(passChar.length == 0){
+        if ( Math.random() >.5 ){
+          passChar.push("l");
+        }
+        if ( Math.random() >.5 ){
+          passChar.push("u");
+        }
+        if ( Math.random() >.5 ){
+          passChar.push("n");
+        }
+        if ( Math.random() >.5 ){
+          passChar.push("s");
+        }
+      }
+      // if theres more than one selected, join them into a string
+      if (passChar.length > 1){
+      passChar = passChar.join("");
+      }
+      console.log("passChar: "+passChar);
+      addChar();
     }
     //use passLength and passChar to create password
     //if (promptLength && promptChar){
@@ -90,7 +113,7 @@ function generatePassword(){
     }
     
     // the code below was inefficient and did not work as expected
-    
+
     // if (promptChar && !promptLength){
     //     console.log("in prompt char");
     //     for (count = 0; count < Math.floor(Math.random*120)+8; count++){
