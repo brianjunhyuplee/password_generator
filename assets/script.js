@@ -15,13 +15,14 @@ var passwordArr = [];
 var lowercaseletters = ["abcdefghijklmnopqrstuvwxyz",0,[]]
 var uppercaseletters = ["ABCDEFGHIJKLMNOPQRSTUVWXTZ",0,[]]
 var specialcharacters = [" !$%()*+,-./:;<=>?@[]^-`{|}~\'\"\&\\\#",0,[]];
-var numbercharacters = ["0123456789",0]
+var numbercharacters = ["0123456789",0,[]]
 var allChar = []
 // Write password to the #password input
 function writePassword() {
   console.log("In the writePassword Function");
   var password = generatePassword();
-  password.toString();
+  //password.toString();
+  console.log("this is my password: " + password);
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
@@ -48,41 +49,48 @@ function generatePassword(){
       passChar =  prompt("Lowercase (L), Uppercase (U), Numbers (N), Special Characters (S)");
       console.log("User Input for length confirm: " + passChar);
       passChar = passChar.toLowerCase();
-      passChar.addChar();
+      addChar();
     }
 //use passLength and passChar to create password
     if (promptLength){
       for (count = 0; count < passLength; count++){
         // generates a random number 0-criteriaNumber to choose between different character types
         ranNum = Math.floor((Math.random() * allChar.length));
+        console.log("this is my ranNum" + ranNum);
         // generates a random character from within the character type
-        ranCharIndex = Math.floor((Math.random() * allChar[ranNum[0]].length));
+        console.log("this is allChar[ranNum] " + allChar[ranNum]);
+        console.log("this is all char at this index: "+allChar[ranNum][0]);
+        ranCharIndex = Math.floor((Math.random() * allChar[ranNum][0].length));
         // counts the number of time this character type is used
-        allChar[ranNum[1]] = allChar[ranNum[1]] + 1;
+        allChar[ranNum][1] = allChar[ranNum][1] + 1;
         // counts the index of time this character type is used
-        allChar[ranNum[2]].push(count);
+        allChar[ranNum][2].push(count);
         //pushes character to passwordArr
-        console.log("character type has been used this many times: " + allChar[ranNum[1]]);
+        console.log("character type has been used this many times: " + allChar[ranNum][1]);
         // adds that character to your password
         // passwordArr.push(allChar[ranNum[0[ranCharIndex]]]);
-        passwordArr.push(allChar[ranNum[0]].charAt(ranCharIndex));
+        passwordArr.push(allChar[ranNum][0].charAt(ranCharIndex));
       }
       // check to see if all char types had been used at least once
-      passwordArr.checkChar();
+      checkChar();
+      console.log("this is my passwordArr: " + passwordArr);
+      console.log("this is my passwordArr in string : " + passwordArr.join(""));
+      
+      password = passwordArr.join("");
     }
     else {
       if (!promptChar){
         for (count = 0; count < Math.floor(Math.random*120)+8; count++){
           ranNum = Math.floor((Math.random() * 3));
-          ranCharIndex = Math.floor((Math.random() * allChar[ranNum[0]].length));
-          passwordArr.push(allChar[ranNum[0]].charAt(ranCharIndex));
+          ranCharIndex = Math.floor((Math.random() * allChar[ranNum][0].length));
+          passwordArr.push(allChar[ranNum][0].charAt(ranCharIndex));
         }
       }
       else {
         for (count = 0; count < Math.floor(Math.random*120)+8; count++){
           ranNum = Math.floor((Math.random() * allChar.lenth));
-          ranCharIndex = Math.floor((Math.random() * allChar[ranNum[0]].length));
-          passwordArr.push(allChar[ranNum[0]].charAt(ranCharIndex));
+          ranCharIndex = Math.floor((Math.random() * allChar[ranNum][0].length));
+          passwordArr.push(allChar[ranNum][0].charAt(ranCharIndex));
         }
       }
 
@@ -91,16 +99,17 @@ function generatePassword(){
 
 // this function adds all neccessary characters
 function addChar(){
-  if (promptChar.indexOf('l')){
+  console.log("went through addChar");
+  if (passChar.indexOf('l')!=-1){
     allChar.push(lowercaseletters);
   }
-  if (promptChar.indexOf('u')){
+  if (passChar.indexOf('u')!=-1){
     allChar.push(uppercaseletters);
   }
-  if (promptChar.indexOf('n')){
+  if (passChar.indexOf('n')!=-1){
     allChar.push(numbercharacters);
   }
-  if (promptChar.indexOf('s')){
+  if (passChar.indexOf('s')!=-1){
     allChar.push(specialcharacters);
   }
 }
@@ -111,19 +120,19 @@ function checkChar(){
       // find which character type(s) has been used more than once and replace a random one with the one that is lacking
         for ( count2 = 0; count2 < allChar.length; count2++ ){
           if ( allChar[count2[1]] > 1 && allChar[count[1]] == 0){
-            ranNum = Math.floor((Math.random() * allChar[count2[2]].length));
-            ranCharIndex = Math.floor((Math.random() * allChar[count[0]].length));
+            ranNum = Math.floor((Math.random() * allChar[count2][2].length));
+            ranCharIndex = Math.floor((Math.random() * allChar[count][0].length));
             //changes the character at a random index with a repeated character type
             //passwordArr[allChar[count2[2[ranNum]]]] = allChar[count[0[ranCharIndex]]];
-            passwordArr[allChar[count2[2[ranNum]]]] = allChar[count[0]].charAt([ranCharIndex]);
+            passwordArr[allChar][count2][2][ranNum] = allChar[count][0].charAt([ranCharIndex]);
             //updates the counters
-            allChar[count[1]] == allChar[count[1]]+1;
-            allChar[count2[1]] == allChar[count2[1]]-1;
+            allChar[count][1] == allChar[count][1]+1;
+            allChar[count2][1] == allChar[count2][1]-1;
           }
         }
 
       }
     }
   }
-}
+
 
