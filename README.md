@@ -18,7 +18,7 @@ Create a website that generates a random password with the given user criterias.
 
 ## Operation:
 
-**To access the website, simply click on the [deploymentlink](https://brianjunhyuplee.github.io/portfolio/).**
+**To access the website, simply click on this [deploymentlink](https://brianjunhyuplee.github.io/portfolio/).**
 
 1. Start by clicking on the "Generate Password" Button.
 2. The interface will prompt the user if a specified length is required.
@@ -35,29 +35,33 @@ Create a website that generates a random password with the given user criterias.
 
 
 ## Process:
-**1.  Create Basic Template For ALL Webpages**
+**1.  Download given template**
 
+The given template contained three files.
+1. *index.html*
+2. *style.css*
+3. *scripts.js*
 
-The Navbar and Footers were both defined features of BootStrap.
-![Image of NavBar and Footer](assets/Images/navbarFooter.png)
-
-
-These two assets will remain constant between the 3 HTML files.
-In addition to these, all three files will also implement a card.
-
-
-![Image of a card with Info About Me](assets/Images/card.png)
-
+After interpreting the HTML and JS files, a basic plan can be made.
+*Nothing was added to the HTML and CSS files.*
 
 **2.  Design Each Webpage**
-1. For index.html
 
-Create a card with title header "About Me".
-Using rows and column you can format the image and the text in desired ways.
-When applied correctly, it should give a similar effect to as shown below.
+This is the image of the basic template for the JS file
+![Image of JS Template](assets/images/template.png)
 
+Based on the above image:
+1. Create a function called generatePassword
 
-![Image of About Me Page](assets/Images/aboutme.png)
+A variable called password was defined as by function called generatePassword();.
+By the name of the function, we can infer that most of the calculations and other functions will be performed here.
+*Create the function by using the code below*
+``bash
+function generatePassword(){
+...
+}
+```
+
 2. For portfolio.html
 
 Create a card with title header "Portfolio".
