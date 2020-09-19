@@ -50,11 +50,17 @@ function generatePassword(){
 //use passLength and passChar to create password
     if (promptLength){
       for (count = 0; count < passLength; count++){
-        // generates a random number 0-2 to choose between 
+        
+        // generates a random number 0-criteriaNumber to choose between different character types
         ranNum = Math.floor((Math.random() * allChar.length));
+        // generates a random character from within the character type
         ranCharIndex = Math.floor((Math.random() * allChar[ranNum[0]].length));
+        // counts the number of time this character type is used
+        allChar[ranNum[1]] = allChar[ranNum[1]] + 1;
+        console.log("character type has been used this many times: " + allChar[ranNum[1]]);
         ranChar = promptChar[ranNum[[0][ranCharIndex]]];
-        passwordArr.push();
+        // adds that character to your password
+        passwordArr.push(ranChar);
       }
     }
     else {
