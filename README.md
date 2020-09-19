@@ -14,7 +14,6 @@
 ## Objective: 
 
 Create a website that generates a random password with the given user criterias.
-![Image of Bootstrap Logo](https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-social.png)
 
 ## Operation:
 
@@ -45,48 +44,51 @@ The given template contained three files.
 After interpreting the HTML and JS files, a basic plan can be made.
 *Nothing was added to the HTML and CSS files.*
 
-**2.  Design Each Webpage**
-
 This is the image of the basic template for the JS file
+
 ![Image of JS Template](assets/images/template.png)
+
+**2.  Global Variables**
+
+There are many variables that have to be declared globally.
+Thought there are many approaches to adding these, this script uses these varibles.
+
+![Image of global var](assets/images/vars.png)
+*These variables were declared and written in as neeeded*
+
+**3.  User Inputs**
 
 Based on the above image:
 1. Create a function called generatePassword
 
-A variable called password was defined as by function called generatePassword();.
-By the name of the function, we can infer that most of the calculations and other functions will be performed here.
-*Create the function by using the code below*
-``bash
+A variable called password was defined by a function called generatePassword().
+By the name of the function, one can infer that most of the calculations and other functions will be performed here.
+
+*Create the function by using the code below.*
+```bash
 function generatePassword(){
-...
+    ...
 }
 ```
 
-2. For portfolio.html
+2. Get user inputs for each criteria
 
-Create a card with title header "Portfolio".
-Similar methods will be used as seen in index.
-Instead of having text, the images will be placed next to eachother.
-This is achieved by placing the items in the same row, but different columns.
+Necessary criterias for a password may include length and/or different character types.
+Accounting for this, the interface must prompt twice for each criteria.
+1. **Confirm**
+    The user will confirm whether this criteria is necessary for their password.
+    *By using confirm(), the interface can "confirm" whether it is needed.*
+    ```bash
+    var varname = confirm("message");
+    ```
+2. **Prompt**
+    If the user confirms, then the user must input correspondingly.
+    *By using prompt(), the interface will "prompt" any necessary inputs*
+    ```bash
+    var varname = prompt("message");
+    ```
 
-![Image of Portfolio Page](assets/Images/aboutme.png)
-
-3. For contact.html
-
-Create a card with title header "Contact".
-Using functions from "form" or more specifically "form-group" input lines will be added to the card.
-The submit button was implemented using "button type="submit"".
-
-![Image of Contact Page](assets/Images/contact.png)
-
-**3.  Adjust code to media queries**
-
-When changing to different devices such as a mobile device or tablet, formatting should be altered slightly to better suit that device.
-Bootstrap has built-in breakpoints labeled as "lg", "md", and "sm".
-At certain breakpoints, use "collapse" to remove code segment from the html.
-
-The code segment shown below demonstates the use of media queries in the navbar.
-![Image of Contact Page](assets/Images/query.png)
+**4. Math**
 
 
 ## Built With:
