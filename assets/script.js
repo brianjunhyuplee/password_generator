@@ -10,6 +10,7 @@ var ranChar;
 var ranNum;
 var ranNum2;
 var ranCharIndex;
+var realPassword;
 var passwordArr = [];
 //string of characters, a counter for how many times used, and index of where it was used
 var lowercaseletters = ["abcdefghijklmnopqrstuvwxyz",0,[]]
@@ -24,7 +25,8 @@ function writePassword() {
   //password.toString();
   console.log("this is my password: " + password);
   var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  passwordText.value = realPassword;
+  console.log("this is my passwordArr in string : " + passwordArr.join(""));
 
 }
 
@@ -41,6 +43,9 @@ function generatePassword(){
       passLength = prompt("Enter a number (8 - 128) for character count");
       console.log("User Input for length confirm: " + passLength);
     }
+    else{
+      passLength = Math.floor(Math.random*120)+8;
+    }
   //getting characters needed
   var promptChar = confirm("There should be certain characters included for my password");
   console.log("User Input for char confirm: " + promptChar);
@@ -51,8 +56,12 @@ function generatePassword(){
       passChar = passChar.toLowerCase();
       addChar();
     }
-//use passLength and passChar to create password
-    if (promptLength){
+    else{
+      passChar = Math.floor((Math.random() * 3);
+    }
+    //use passLength and passChar to create password
+    //if (promptLength && promptChar){
+      console.log("in prompt length");
       for (count = 0; count < passLength; count++){
         // generates a random number 0-criteriaNumber to choose between different character types
         ranNum = Math.floor((Math.random() * allChar.length));
@@ -75,27 +84,39 @@ function generatePassword(){
       checkChar();
       console.log("this is my passwordArr: " + passwordArr);
       console.log("this is my passwordArr in string : " + passwordArr.join(""));
-      
-      password = passwordArr.join("");
+      console.log("this is my typeof: " + typeof passwordArr.join(""));
+      realPassword = passwordArr.join("");
+      console.log("this is my password: " + password);
     }
-    else {
-      if (!promptChar){
-        for (count = 0; count < Math.floor(Math.random*120)+8; count++){
-          ranNum = Math.floor((Math.random() * 3));
-          ranCharIndex = Math.floor((Math.random() * allChar[ranNum][0].length));
-          passwordArr.push(allChar[ranNum][0].charAt(ranCharIndex));
-        }
-      }
-      else {
-        for (count = 0; count < Math.floor(Math.random*120)+8; count++){
-          ranNum = Math.floor((Math.random() * allChar.lenth));
-          ranCharIndex = Math.floor((Math.random() * allChar[ranNum][0].length));
-          passwordArr.push(allChar[ranNum][0].charAt(ranCharIndex));
-        }
-      }
+    
+    // the code below was inefficient and did not work as expected
+    
+    // if (promptChar && !promptLength){
+    //     console.log("in prompt char");
+    //     for (count = 0; count < Math.floor(Math.random*120)+8; count++){
+    //       ranNum = Math.floor((Math.random() * allChar.lenth));
+    //       ranCharIndex = Math.floor((Math.random() * allChar[ranNum][0].length));
+    //       passwordArr.push(allChar[ranNum][0].charAt(ranCharIndex));
+    //     }
+    //     checkChar();
+    //   }
+    // if (!promptChar && !promptLength){
+    //     for (count = 0; count < Math.floor(Math.random*120)+8; count++){
+    //       console.log("in not prompt char");
+    //       ranNum = Math.floor((Math.random() * 3));
+    //       ranCharIndex = Math.floor((Math.random() * allChar[ranNum][0].length));
+    //       passwordArr.push(allChar[ranNum][0].charAt(ranCharIndex));
+    //     }
+    //   }
 
-    }
-}
+    // console.log("this is my passwordArr: " + passwordArr);
+    // console.log("this is my passwordArr in string : " + passwordArr.join(""));
+    // console.log("this is my typeof: " + typeof passwordArr.join(""));
+    // realPassword = passwordArr.join("");
+    // console.log("this is my password: " + password);
+
+    
+//}
 
 // this function adds all neccessary characters
 function addChar(){
