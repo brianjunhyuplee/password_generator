@@ -43,6 +43,7 @@ The given template contained three files.
 3. *scripts.js*
 
 After interpreting the HTML and JS files, a basic plan can be made.
+
 *Nothing was added to the HTML and CSS files.*
 
 This is the image of the basic template for the JS file
@@ -62,6 +63,7 @@ Thought there are many approaches to adding these, this script uses these varibl
 
 A variable called password was defined by a function called generatePassword().
 By the name of the function, one can infer that most of the calculations and other functions will be performed here.
+
 *Once this function is completed, the template will print out the password on its own*
 
 *Create the function by using the code below.*
@@ -77,13 +79,16 @@ function generatePassword(){
 Necessary criterias for a password may include length and/or different character types.
 Accounting for this, the interface must prompt twice for each criteria.
 1. **Confirm**
+    
     The user will confirm whether this criteria is necessary for their password.
     *By using confirm(), the interface can "confirm" whether it is needed.*
     ```bash
     var varname = confirm("message");
     ```
 2. **Prompt**
+    
     If the user confirms, then the user must input correspondingly.
+    
     *By using prompt(), the interface will "prompt" any necessary inputs*
     ```bash
     var varname = prompt("message");
@@ -95,12 +100,15 @@ Accounting for this, the interface must prompt twice for each criteria.
 Using the given information, the script operates to create a randomly generated password.
 Most of the code is written in this section.
 
-1. Length
+1. **Length**
+
 Using the length prompted, a for loop is run to construct an array of characters
+
 *If a length was not selected, a random number between 8 and 128 will be selected.*
 
-2. Characters
+2. **Characters**
     1. Using the character types prompted, the script will create an array containing all the character types specified.
+    
     *If a character type was not selected, one or more will be randomly selected.*
     Each character type consists of 3 elements:
     ```bash
